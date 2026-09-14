@@ -16,6 +16,7 @@ Report Includes:
 - Failed students
 """
 
+
 # ===============================================
 # Step 1: Student Record Data
 # ===============================================
@@ -32,7 +33,8 @@ records = [
     ("Kumar", "English", 12),
 ]
 
-PASSMARKS = 40
+PASS_MARKS = 40
+
 
 # ===============================================
 # Step 2: Convert Records into Dictionaries
@@ -44,6 +46,7 @@ student_records = []
 
 for record in records:
     student_records.append(dict(zip(keys, record)))
+
 
 # ===============================================
 # Step 3: Find Unique Students and Subjects
@@ -61,8 +64,64 @@ for record in student_records:
         subjects.append(record["subject"])
 
 
-def calculate_average(total, count):
-    return round(total / count, 2)
+# ===============================================
+# Utility Functions
+# ===============================================
+
+def print_averages(averages):
+    """Display name/subject averages."""
+    for average in averages:
+        print(f"{average[0]:<8}: {average[1]:.2f}")
+
+
+def print_high_and_low_rates(
+    highest_value,
+    highest_name,
+    lowest_value,
+    lowest_name
+):
+    """Display the highest and lowest result."""
+    print(
+        f"\n{highest_name}: "
+        f"{highest_value[0]} ({highest_value[1]:.2f})"
+    )
+    print(
+        f"{lowest_name}: "
+        f"{lowest_value[0]} ({lowest_value[1]:.2f})"
+    )
+
+
+def descending_sort(data, index):
+    """Sort records by the selected index in descending order."""
+    return sorted(data, key=lambda item: item[index], reverse=True)
+
+
+def display_students_category(category_name, students, compare_type):
+    """Display passed or failed students."""
+    print(
+        f"\n--- {category_name} Students "
+        f"(Average {compare_type} {PASS_MARKS}) ---"
+    )
+
+    if not students:
+        print("None")
+    else:
+        for student in students:
+            print(f"{student[0]:<8}: {student[1]:.2f}")
+
+
+def calculate_average(records, key, value):
+    """Calculate the average marks for a given student or subject."""
+    total_marks = 0
+    count = 0
+
+    for record in records:
+
+        if record[key] == value:
+            total_marks += record["marks"]
+            count += 1
+
+    return round(total_marks / count, 2) if count > 0 else 0
 
 
 # ===============================================
@@ -72,89 +131,73 @@ def calculate_average(total, count):
 student_averages = []
 
 for name in student_names:
+    average = calculate_average(
+        student_records,
+        "name",
+        name
+    )
 
-    total = 0
-    count = 0
-
-    for record in student_records:
-
-        if name == record["name"]:
-            total += record["marks"]
-            count += 1
-
-    average = calculate_average(total, count)
     student_averages.append([name, average])
 
-student_averages = sorted(
-    student_averages,
-    key=lambda student: student[1],
-    reverse=True
-)
+student_averages = descending_sort(student_averages, 1)
+
 
 # ===============================================
 # Step 5: Display Student Results
 # ===============================================
 
-print("\n========== SUMMARY REPORT OF STUDENT & SUBJECT MARKS ==========\n")
+print(
+    "\n========== SUMMARY REPORT OF STUDENT "
+    "and SUBJECT MARKS ==========\n"
+)
 
 print("--- Student Averages ---")
-
-for student in student_averages:
-    print(f"{student[0]:<8}:{student[1]}")
+print_averages(student_averages)
 
 top_student = student_averages[0]
-low_student = student_averages[-1]
+lowest_student = student_averages[-1]
 
-print(f"\nTop Scorer:{top_student[0]}({top_student[1]})")
-print(f"Low Scorer:{low_student[0]}({low_student[1]})")
+print_high_and_low_rates(
+    top_student,
+    "Top Student",
+    lowest_student,
+    "Lowest Student"
+)
 
 
 # ===============================================
 # Step 6: Calculate Subject Averages
 # ===============================================
 
-print("\n--- Subject Averages ---")
-
 subject_averages = []
 
 for subject in subjects:
+    average = calculate_average(
+        student_records,
+        "subject",
+        subject
+    )
 
-    total = 0
-    count = 0
-
-    for record in student_records:
-
-        if subject == record["subject"]:
-            total += record["marks"]
-            count += 1
-
-    average = calculate_average(total, count)
     subject_averages.append([subject, average])
 
-subject_averages = sorted(
-    subject_averages,
-    key=lambda subject: subject[1],
-    reverse=True
-)
+subject_averages = descending_sort(subject_averages, 1)
+
 
 # ===============================================
 # Step 7: Display Subject Results
 # ===============================================
 
-for subject in subject_averages:
-    print(f"{subject[0]:<8}:{subject[1]}")
+print("\n--- Subject Averages ---")
+print_averages(subject_averages)
 
-hardest_subject = subject_averages[-1]
 easiest_subject = subject_averages[0]
+hardest_subject = subject_averages[-1]
 
-print(
-    f"\nHardest Subject:{hardest_subject[0]}"
-    f"({hardest_subject[1]})"
-)
-
-print(
-    f"Easiest Subject:{easiest_subject[0]}"
-    f"({easiest_subject[1]})"
+print_high_and_low_rates(
+    easiest_subject,
+    "Easiest Subject",
+    hardest_subject,
+    "Hardest Subject"
 )
 
 
@@ -167,39 +210,31 @@ failed_students = []
 
 for student in student_averages:
 
-    if student[1] >= PASSMARKS:
+    if student[1] >= PASS_MARKS:
         passed_students.append(student)
     else:
         failed_students.append(student)
+
 
 # ===============================================
 # Step 9: Display Passed Students
 # ===============================================
 
-print(f"\n--- Passed Students (Average >= {PASSMARKS}) ---")
-
-if not passed_students:
-    print("None")
-else:
-    for student in passed_students:
-        print(f"{student[0]:<8}:{student[1]}")
+display_students_category(
+    "Passed",
+    passed_students,
+    ">="
+)
 
 
 # ===============================================
 # Step 10: Display Failed Students
 # ===============================================
 
-print(f"\n--- Failed Students (Average < {PASSMARKS}) ---")
-
-failed_students = sorted(
+display_students_category(
+    "Failed",
     failed_students,
-    key=lambda student: student[1]
+    "<"
 )
-
-if not failed_students:
-    print("None")
-else:
-    for student in failed_students:
-        print(f"{student[0]:<8}:{student[1]}")
 
 print()
