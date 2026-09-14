@@ -79,3 +79,9 @@ Each problem contains the solution and supporting notes describing the requireme
 This repository represents the stage of my development where I am strengthening programming fundamentals and problem-solving ability through practical Python problems.
 
 As my skills grow, the repository will continue to show that progression rather than trying to hide earlier work.
+
+## 👨‍💻 Developer
+
+**Boyidapu Mahesh Babu**
+
+GitHub: [@BoyidapuMaheshBabu](https://github.com/BoyidapuMaheshBabu)
