@@ -189,8 +189,12 @@ No bulk discount applies because the rule requires the food amount to be strictl
 
 **Input**
 ```text
+item = Biryani
+qty = 3
+price = 400
 tip choice = 2
 percentage = 25
+membership = regular
 ```
 
 **Expected Output**
