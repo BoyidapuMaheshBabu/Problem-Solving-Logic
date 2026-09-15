@@ -64,7 +64,9 @@ Final fine: ₹405.00
 
 ## Test Cases
 
-### Test Case 1 — Tier 1 only
+Every test case below uses the same complete output structure.
+
+### Test Case 1 — Tier 1, Fiction, non-member
 
 **Input**
 ```text
@@ -76,12 +78,13 @@ membership = Non-member
 **Expected Output**
 ```text
 Base fine: ₹25.00
-Multiplier: 1× = ₹25.00
-Discount: 0%
+Multiplier: Fiction (1×) = ₹25.00
+Membership discount: 0% = ₹0.00
+After discount: ₹25.00
 Final fine: ₹25.00
 ```
 
-### Test Case 2 — Spans tier 1 and tier 2
+### Test Case 2 — Cumulative tiers, Non-fiction, Regular member
 
 **Input**
 ```text
@@ -93,12 +96,13 @@ membership = Regular
 **Expected Output**
 ```text
 Base fine: ₹65.00
-Multiplier: 1.5× = ₹97.50
-Discount: 10% = −₹9.75
+Multiplier: Non-fiction (1.5×) = ₹97.50
+Membership discount: 10% = −₹9.75
+After discount: ₹87.75
 Final fine: ₹87.75
 ```
 
-### Test Case 3 — Fine exceeds the ₹500 cap
+### Test Case 3 — Tier 4 with Reference multiplier and Premium discount
 
 **Input**
 ```text
@@ -110,11 +114,13 @@ membership = Premium
 **Expected Output**
 ```text
 Base fine: ₹675.00
-Multiplier: 2× = ₹1350.00
-Discount: 20% = −₹270.00
+Multiplier: Reference (2×) = ₹1350.00
+Membership discount: 20% = −₹270.00
 After discount: ₹1080.00
 Final fine: ₹500.00
 ```
+
+The fine is capped at ₹500 after all other calculations.
 
 ### Test Case 4 — Boundary: exactly 0 days overdue
 
@@ -128,22 +134,28 @@ membership = Non-member
 **Expected Output**
 ```text
 Base fine: ₹0.00
+Multiplier: Fiction (1×) = ₹0.00
+Membership discount: 0% = ₹0.00
+After discount: ₹0.00
 Final fine: ₹0.00
 ```
 
-### Test Case 5 — Fine exceeds the cap before final output
+### Test Case 5 — Boundary: first day of the 31+ tier
 
 **Input**
 ```text
-days = 40
-book = Reference
+days = 31
+book = Fiction
 membership = Non-member
 ```
 
 **Expected Output**
 ```text
-Fine before cap: ₹1850.00
-Final fine: ₹500.00
+Base fine: ₹275.00
+Multiplier: Fiction (1×) = ₹275.00
+Membership discount: 0% = ₹0.00
+After discount: ₹275.00
+Final fine: ₹275.00
 ```
 
 ### Test Case 6 — Invalid book type
