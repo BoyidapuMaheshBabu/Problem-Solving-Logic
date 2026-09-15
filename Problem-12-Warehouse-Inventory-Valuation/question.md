@@ -1,13 +1,5 @@
 # Problem 12 — Warehouse Inventory Valuation
 
-## Curriculum Mapping
-
-- **Main Topic:** Introduction to Programming → Loops and Functions
-- **Sub-topic:** Functions
-- **Supporting Concepts:** Loops, dictionaries, conditionals, aggregation, sorting (all already practiced in Problems 9–11)
-- **Learning Goal:** Structure a program around two purpose-built functions that are called repeatedly, so function use survives into the refactor instead of disappearing.
-- **Why Now:** In both Problem 10 and Problem 11, a function appeared in the initial solution and was removed during refactoring. Loops, dictionaries, and aggregation are already solid. Functions are the one skill that hasn't stuck yet. This problem is designed so that avoiding functions means writing the same two calculations seven separate times by hand.
-
 ## Problem Statement
 
 A warehouse tracks its inventory across multiple products. Each product belongs to a category, and each category has its own clearance discount applied to the stock's value before reporting.
@@ -71,12 +63,12 @@ Each tuple is:
 - You must write **at least two functions**:
   1. One that calculates a product's stock value.
   2. One that applies the category discount.
-- Both functions must be called once per product, inside your loop — not written once and then abandoned in the refactor.
+- Both functions must be called once per product, inside your loop.
 - Do not use pandas or any external library. Plain Python only.
 
 ## Test Cases
 
-Every non-empty test case below uses the same complete output structure as the main expected output. Category totals must list each category separately, including unrecognized categories.
+Every non-empty test case below follows the same complete output structure as the main expected output. Product results, category totals, grand total, highest category, and High Value Stock are all shown.
 
 ### Test Case 1 — Normal case with all three known categories
 
@@ -174,7 +166,7 @@ High Value Stock: None
 
 `Electronics` and `Grocery` are tied, so either category is acceptable as the highest category.
 
-### Test Case 5 — Multiple unrecognized categories must remain separate
+### Test Case 5 — Multiple unrecognized categories
 
 **Input**
 ```python
@@ -197,7 +189,7 @@ Highest category: Screen
 High Value Stock: Monitor Stand
 ```
 
-`Toys`, `Home`, and `Screen` are all unrecognized categories, so each category is reported separately and receives no discount.
+`Toys`, `Home`, and `Screen` are unrecognized categories, so each category is reported separately and receives no discount.
 
 ### Test Case 6 — Empty product list
 
