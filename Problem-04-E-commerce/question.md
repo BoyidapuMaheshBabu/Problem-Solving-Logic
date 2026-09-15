@@ -70,7 +70,9 @@ Final amount: ₹6740.00
 
 ## Test Cases
 
-### Test Case 1 — Electronics with valid coupon
+Every test case below uses the same complete output structure as the example.
+
+### Test Case 1 — Electronics, valid coupon, large order
 
 **Input**
 ```text
@@ -85,12 +87,12 @@ Category discount: 5% = ₹400.00
 After category discount: ₹7600.00
 Bonus discount: 10% = ₹760.00
 After bonus discount: ₹6840.00
-Shipping: Free
-Coupon: Valid = −₹100.00
-Final: ₹6740.00
+Shipping cost: Free
+Coupon: SAVE10 valid = −₹100.00
+Final amount: ₹6740.00
 ```
 
-### Test Case 2 — Groceries, small amount, shipping applies
+### Test Case 2 — Groceries, small order, no coupon
 
 **Input**
 ```text
@@ -101,14 +103,16 @@ coupon = NONE
 
 **Expected Output**
 ```text
-Category discount: None
-Bonus discount: None
-Shipping: ₹100.00
-Coupon: None
-Final: ₹500.00
+Category discount: 0% = ₹0.00
+After category discount: ₹400.00
+Bonus discount: 0% = ₹0.00
+After bonus discount: ₹400.00
+Shipping cost: ₹100.00
+Coupon: NONE = ₹0.00
+Final amount: ₹500.00
 ```
 
-### Test Case 3 — Clothing, large order, no coupon
+### Test Case 3 — Clothing, highest bonus tier, no coupon
 
 **Input**
 ```text
@@ -123,12 +127,12 @@ Category discount: 15% = ₹1800.00
 After category discount: ₹10200.00
 Bonus discount: 15% = ₹1530.00
 After bonus discount: ₹8670.00
-Shipping: Free
-Coupon: None
-Final: ₹8670.00
+Shipping cost: Free
+Coupon: NONE = ₹0.00
+Final amount: ₹8670.00
 ```
 
-### Test Case 4 — Boundary: category discount leaves an amount inside the bonus tier
+### Test Case 4 — Boundary: amount after category discount is just above ₹1,000
 
 **Input**
 ```text
@@ -143,12 +147,12 @@ Category discount: 10% = ₹111.20
 After category discount: ₹1000.80
 Bonus discount: 5% = ₹50.04
 After bonus discount: ₹950.76
-Shipping: ₹50.00
-Coupon: Invalid (amount after discounts is not strictly above ₹1000)
-Final: ₹1000.76
+Shipping cost: ₹50.00
+Coupon: SAVE10 invalid = ₹0.00
+Final amount: ₹1000.76
 ```
 
-This case verifies that ₹1,000 is included in the bonus-discount tier and that coupon eligibility is checked after the bonus discount.
+The coupon is invalid because the amount after both discounts is not strictly greater than ₹1,000.
 
 ### Test Case 5 — Invalid category
 
