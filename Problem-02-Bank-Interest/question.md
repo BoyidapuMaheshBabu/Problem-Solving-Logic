@@ -38,7 +38,9 @@ Interest earned is ₹5000.00
 
 ## Test Cases
 
-### Test Case 1 — Tier 1
+Each test case below shows the complete expected result for that balance.
+
+### Test Case 1 — Balance in the 2% tier
 
 **Input**
 ```text
@@ -50,7 +52,7 @@ balance = 5000
 Interest earned is ₹100.00
 ```
 
-### Test Case 2 — Tier 2
+### Test Case 2 — Balance in the 4% tier
 
 **Input**
 ```text
@@ -62,7 +64,7 @@ balance = 30000
 Interest earned is ₹1200.00
 ```
 
-### Test Case 3 — Tier 3 with bonus
+### Test Case 3 — Balance in the 6% tier with bonus
 
 **Input**
 ```text
@@ -86,21 +88,9 @@ balance = 200000
 Interest earned is ₹15675.00
 ```
 
-**Calculation:** ₹200,000 × 8% = ₹16,000; + ₹500 = ₹16,500; tax = 5% of ₹16,500 = ₹825; final = ₹15,675.
+Calculation: ₹200,000 × 8% = ₹16,000; + ₹500 bonus = ₹16,500; 5% tax = ₹825; final interest earned = ₹15,675.
 
-### Test Case 5 — Boundary: zero balance is invalid
-
-**Input**
-```text
-balance = 0
-```
-
-**Expected Output**
-```text
-No interest earned, because the balance is invalid.
-```
-
-### Test Case 6 — Boundary: exactly ₹10,000
+### Test Case 5 — Boundary: exactly ₹10,000
 
 **Input**
 ```text
@@ -110,4 +100,16 @@ balance = 10000
 **Expected Output**
 ```text
 Interest earned is ₹200.00
+```
+
+### Test Case 6 — Invalid zero balance
+
+**Input**
+```text
+balance = 0
+```
+
+**Expected Output**
+```text
+No interest earned, because the balance is invalid.
 ```
