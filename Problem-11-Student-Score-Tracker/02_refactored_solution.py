@@ -236,5 +236,3 @@ display_students_category(
     failed_students,
     "<"
 )
-
-print()
