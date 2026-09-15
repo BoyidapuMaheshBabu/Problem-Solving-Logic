@@ -72,7 +72,9 @@ Total for 10 tickets: ₹3230.00
 
 ## Test Cases
 
-### Test Case 1 — Adult, evening, member, no group discount
+Every test case below uses the same complete output structure as the example.
+
+### Test Case 1 — Adult, evening, member, fewer than 5 tickets
 
 **Input**
 ```text
@@ -86,14 +88,15 @@ membership = Yes
 ```text
 Base price: ₹300
 Time adjustment: +₹100
-After time adjustment: ₹400
-Group discount: None
+Price after time adjustment: ₹400
+Group discount: 0% = ₹0.00
+Price after group discount: ₹400.00
 Membership discount: 5% = ₹20.00
 Final price per ticket: ₹380.00
-Total: ₹1140.00
+Total for 3 tickets: ₹1140.00
 ```
 
-### Test Case 2 — Child, matinee, group discount, no membership
+### Test Case 2 — Child, matinee, 5–9 tickets, non-member
 
 **Input**
 ```text
@@ -107,13 +110,15 @@ membership = No
 ```text
 Base price: ₹150
 Time adjustment: −₹50
-After time adjustment: ₹100
+Price after time adjustment: ₹100
 Group discount: 10% = ₹10.00
+Price after group discount: ₹90.00
+Membership discount: 0% = ₹0.00
 Final price per ticket: ₹90.00
-Total: ₹720.00
+Total for 8 tickets: ₹720.00
 ```
 
-### Test Case 3 — Senior, night show, large group, member
+### Test Case 3 — Senior, night show, 20+ tickets, member
 
 **Input**
 ```text
@@ -127,12 +132,12 @@ membership = Yes
 ```text
 Base price: ₹200
 Time adjustment: +₹150
-After time adjustment: ₹350
+Price after time adjustment: ₹350
 Group discount: 20% = ₹70.00
-After group discount: ₹280.00
+Price after group discount: ₹280.00
 Membership discount: 5% = ₹14.00
 Final price per ticket: ₹266.00
-Total: ₹5320.00
+Total for 20 tickets: ₹5320.00
 ```
 
 ### Test Case 4 — Boundary: exactly 5 tickets
@@ -147,10 +152,17 @@ membership = No
 
 **Expected Output**
 ```text
-Group discount applied: 10%
+Base price: ₹300
+Time adjustment: +₹100
+Price after time adjustment: ₹400
+Group discount: 10% = ₹40.00
+Price after group discount: ₹360.00
+Membership discount: 0% = ₹0.00
+Final price per ticket: ₹360.00
+Total for 5 tickets: ₹1800.00
 ```
 
-### Test Case 5 — Time outside all adjustment ranges
+### Test Case 5 — Show time outside all adjustment ranges
 
 **Input**
 ```text
@@ -163,9 +175,11 @@ membership = No
 **Expected Output**
 ```text
 Base price: ₹200
-Time adjustment: None
-Group discount: None
-Membership discount: None
+Time adjustment: ₹0
+Price after time adjustment: ₹200
+Group discount: 0% = ₹0.00
+Price after group discount: ₹200.00
+Membership discount: 0% = ₹0.00
 Final price per ticket: ₹200.00
-Total: ₹400.00
+Total for 2 tickets: ₹400.00
 ```
