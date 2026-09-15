@@ -15,11 +15,11 @@ A structured record of my **Python problem-solving practice**, focused on reason
 
 ## 🐍 Skills Demonstrated
 
-**Python:** `print()` · variables · input handling · conditions · calculations · loops · lists · tuples · dictionaries · sets
+**Python Fundamentals:** Practicing variables, input handling, conditional logic, loops, and core data structures through problem solving.
 
-**Functions & Data Processing:** functions · reusable logic · grouping · filtering · sorting · ranking · averages
+**Functions & Data Processing:** Functions, reusable logic, grouping, filtering, sorting, ranking, and averages.
 
-**Problem Solving:** requirements analysis · logical reasoning · validation · edge cases · testing · debugging · refactoring
+**Problem Solving:** Requirements analysis, logical reasoning, validation, edge cases, testing, debugging, and refactoring.
 
 ## 🔍 Problem-Solving Approach
 
