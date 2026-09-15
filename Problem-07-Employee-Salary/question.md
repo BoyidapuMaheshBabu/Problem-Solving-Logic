@@ -73,7 +73,9 @@ Final salary: ₹54720.00
 
 ## Test Cases
 
-### Test Case 1 — Mid-level employee, excellent rating, good attendance
+Every valid test case below uses the same complete output structure as the example.
+
+### Test Case 1 — Mid-level employee, excellent rating, 5% attendance penalty
 
 **Input**
 ```text
@@ -87,10 +89,10 @@ attendance = 92
 Base salary: ₹60000.00
 Bonus: 20% = ₹12000.00
 After bonus: ₹72000.00
-Penalty: 5% = ₹3600.00
+Attendance penalty: 5% = ₹3600.00
 After penalty: ₹68400.00
 Tax: 20% = ₹13680.00
-Final: ₹54720.00
+Final salary: ₹54720.00
 ```
 
 ### Test Case 2 — Junior employee, poor rating, low attendance
@@ -105,14 +107,15 @@ attendance = 65
 **Expected Output**
 ```text
 Base salary: ₹25000.00
-Bonus: 0%
-Penalty: 20% = ₹5000.00
+Bonus: 0% = ₹0.00
+After bonus: ₹25000.00
+Attendance penalty: 20% = ₹5000.00
 After penalty: ₹20000.00
-Tax: 0%
-Final: ₹20000.00
+Tax: 0% = ₹0.00
+Final salary: ₹20000.00
 ```
 
-### Test Case 3 — Senior employee, excellent rating, perfect attendance
+### Test Case 3 — Senior employee, excellent rating, no attendance penalty
 
 **Input**
 ```text
@@ -126,12 +129,13 @@ attendance = 100
 Base salary: ₹90000.00
 Bonus: 20% = ₹18000.00
 After bonus: ₹108000.00
-Penalty: 0%
+Attendance penalty: 0% = ₹0.00
+After penalty: ₹108000.00
 Tax: 30% = ₹32400.00
-Final: ₹75600.00
+Final salary: ₹75600.00
 ```
 
-### Test Case 4 — Boundary: exactly 2 years experience
+### Test Case 4 — Boundary: exactly 2 years of experience
 
 **Input**
 ```text
@@ -145,13 +149,13 @@ attendance = 80
 Base salary: ₹25000.00
 Bonus: 5% = ₹1250.00
 After bonus: ₹26250.00
-Penalty: 10% = ₹2625.00
+Attendance penalty: 10% = ₹2625.00
 After penalty: ₹23625.00
-Tax: 0%
-Final: ₹23625.00
+Tax: 0% = ₹0.00
+Final salary: ₹23625.00
 ```
 
-### Test Case 5 — Invalid rating
+### Test Case 5 — Invalid performance rating
 
 **Input**
 ```text
@@ -165,7 +169,7 @@ attendance = 90
 Invalid rating!
 ```
 
-### Test Case 6 — Invalid attendance
+### Test Case 6 — Invalid attendance percentage
 
 **Input**
 ```text
