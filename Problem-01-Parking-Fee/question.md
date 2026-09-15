@@ -36,11 +36,13 @@ Fee is ₹110.00
 
 ## Test Cases
 
-### Test Case 1 — Minimum fixed fee
+Each test case below shows the complete expected output for that input.
+
+### Test Case 1 — First 2 hours
 
 **Input**
 ```text
-h = 2
+h = 1
 ```
 
 **Expected Output**
@@ -48,54 +50,44 @@ h = 2
 Fee is ₹30.00
 ```
 
-### Test Case 2 — Hours in tier 2
+### Test Case 2 — End of the ₹20-per-hour tier
 
 **Input**
 ```text
-h = 4
+h = 5
 ```
 
 **Expected Output**
 ```text
-Fee is ₹70.00
+Fee is ₹90.00
 ```
 
-### Test Case 3 — Hours in tier 3, no discount
+Calculation: ₹30 + (3 × ₹20) = ₹90.
+
+### Test Case 3 — Discount boundary: calculated fee is exactly ₹200
 
 **Input**
 ```text
-h = 7
+h = 16
 ```
 
 **Expected Output**
 ```text
-Fee is ₹110.00
+Fee is ₹200.00
 ```
 
-### Test Case 4 — Boundary: calculated fee is below ₹200
+No discount applies because the rule requires the calculated fee to be strictly greater than ₹200.
+
+### Test Case 4 — Discount applies after 5 hours
 
 **Input**
 ```text
-h = 12
+h = 17
 ```
 
 **Expected Output**
 ```text
-Fee is ₹160.00
+Fee is ₹189.00
 ```
 
-**Calculation:** ₹30 + (3 × ₹20) + (7 × ₹10) = ₹160. No discount applies.
-
-### Test Case 5 — Discount applies
-
-**Input**
-```text
-h = 20
-```
-
-**Expected Output**
-```text
-Fee is ₹216.00
-```
-
-**Calculation:** ₹30 + (3 × ₹20) + (15 × ₹10) = ₹240. After 10% discount: ₹216.
+Calculation: ₹30 + (3 × ₹20) + (12 × ₹10) = ₹210; 10% discount = ₹21; final fee = ₹189.
