@@ -67,19 +67,48 @@ None
 
 ## Test Cases
 
+Every test case below reports all required results using the same section names as the main expected output.
+
 ### Test Case 1 — Normal case
 
-Use the given `records` data.
+**Input**
+```python
+records = [
+    ("Ravi",   "Math",    78),
+    ("Anjali", "Math",    92),
+    ("Ravi",   "Science", 65),
+    ("Priya",  "Math",    55),
+    ("Anjali", "Science", 88),
+    ("Priya",  "Science", 40),
+    ("Ravi",   "English", 50),
+    ("Anjali", "English", 95),
+    ("Priya",  "English", 33),
+]
+```
 
-**Expected key results:**
+**Expected Output**
 ```text
+--- Student Averages ---
+Anjali  : 91.67
+Ravi    : 64.33
+Priya   : 42.67
+
 Top Scorer: Anjali (91.67)
+
+--- Subject Averages ---
+Math    : 75.0
+Science : 64.33
+English : 59.33
+
 Hardest Subject: English (59.33)
-Failed Students: None
+
+--- Failed Students (Average < 40) ---
+None
 ```
 
 ### Test Case 2 — One student fails
 
+**Input**
 ```python
 records = [
     ("Ravi",   "Math",    78),
@@ -94,17 +123,29 @@ records = [
 ]
 ```
 
-**Expected key results:**
+**Expected Output**
 ```text
+--- Student Averages ---
+Anjali : 91.67
+Ravi   : 64.33
+Kumar  : 15.00
+
 Top Scorer: Anjali (91.67)
-Failed Students:
+
+--- Subject Averages ---
+Math    : 63.33
+Science : 56.0
+English : 51.67
+
+Hardest Subject: English (51.67)
+
+--- Failed Students (Average < 40) ---
 Kumar : 15.00
 ```
 
 ### Test Case 3 — Equal student averages
 
-Use records that give every student an average of 70, such as:
-
+**Input**
 ```python
 records = [
     ("A", "Math", 70),
@@ -113,15 +154,29 @@ records = [
 ]
 ```
 
-**Expected key results:**
+**Expected Output**
 ```text
-All student averages: 70.00
+--- Student Averages ---
+A : 70.00
+B : 70.00
+C : 70.00
+
+Top Scorer: A (70.00)
+
+--- Subject Averages ---
+Math : 70.00
+
+Hardest Subject: Math (70.00)
+
+--- Failed Students (Average < 40) ---
+None
 ```
 
-Any consistent order among students with equal averages is acceptable.
+Any consistent order among the equal-average students is acceptable.
 
 ### Test Case 4 — Boundary: average exactly 40 does not fail
 
+**Input**
 ```python
 records = [
     ("Ravi", "Math", 40),
@@ -131,14 +186,29 @@ records = [
 ]
 ```
 
-**Expected key results:**
+**Expected Output**
 ```text
-Ravi average: 40.00
-Ravi is not a failed student.
+--- Student Averages ---
+Anjali : 80.00
+Ravi   : 40.00
+
+Top Scorer: Anjali (80.00)
+
+--- Subject Averages ---
+Math    : 60.00
+Science : 60.00
+
+Hardest Subject: Math (60.00)
+
+--- Failed Students (Average < 40) ---
+None
 ```
+
+Math and Science have equal averages, so either subject may be reported as the hardest subject if the tie is handled consistently.
 
 ### Test Case 5 — Multiple failing students
 
+**Input**
 ```python
 records = [
     ("Ravi",  "Math",    80),
@@ -153,13 +223,23 @@ records = [
 ]
 ```
 
-**Expected key results:**
+**Expected Output**
 ```text
-Ravi average: 85.00
-Priya average: 25.00
-Kumar average: 12.33
+--- Student Averages ---
+Ravi  : 85.00
+Priya : 25.00
+Kumar : 12.33
 
-Failed Students:
+Top Scorer: Ravi (85.00)
+
+--- Subject Averages ---
+Science : 43.33
+English : 40.67
+Math    : 38.33
+
+Hardest Subject: Math (38.33)
+
+--- Failed Students (Average < 40) ---
 Priya : 25.00
 Kumar : 12.33
 ```
