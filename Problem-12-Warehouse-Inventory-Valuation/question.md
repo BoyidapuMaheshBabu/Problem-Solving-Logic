@@ -50,6 +50,8 @@ Each tuple is:
 
 5. **High Value Stock** = any product whose **FINAL value is strictly greater than Rs.10,000**.
 
+6. **Category reporting** = report every category found in the input separately, including unrecognized categories. Do not combine different category names into one total.
+
 ## Required Output
 
 1. Every product's stock value and final value.
@@ -74,29 +76,42 @@ Each tuple is:
 
 ## Test Cases
 
-### Test Case 1 — Normal Case (given data, mixed categories)
+Every non-empty test case below uses the same complete output structure as the main expected output. Category totals must list each category separately, including unrecognized categories.
 
-Use the products list above.
+### Test Case 1 — Normal case with all three known categories
 
-**Expected:**
+**Input**
+```python
+products = [
+    ("Laptop",    "Electronics", 5,   55000),
+    ("Mouse",     "Electronics", 20,  500),
+    ("Rice Bag",  "Grocery",     50,  1200),
+    ("Sugar Bag", "Grocery",     40,  450),
+    ("Notebook",  "Stationery",  100, 60),
+    ("Pen Pack",  "Stationery",  200, 20),
+    ("Monitor",   "Electronics", 8,  12000),
+]
+```
 
+**Expected Output**
 ```text
 Laptop   : stock value Rs.275000, final value Rs.261250.00
 Mouse    : stock value Rs.10000,  final value Rs.9500.00
 Rice Bag : stock value Rs.60000,  final value Rs.54000.00
 Sugar Bag: stock value Rs.18000,  final value Rs.16200.00
-Notebook : stock value Rs.6000,   final value Rs.6000
-Pen Pack : stock value Rs.4000,   final value Rs.4000
+Notebook : stock value Rs.6000,   final value Rs.6000.00
+Pen Pack : stock value Rs.4000,   final value Rs.4000.00
 Monitor  : stock value Rs.96000,  final value Rs.91200.00
 
-Category totals : Electronics Rs.361950.00, Grocery Rs.70200.00, Stationery Rs.10000
+Category totals : Electronics Rs.361950.00, Grocery Rs.70200.00, Stationery Rs.10000.00
 Grand total     : Rs.442150.00
 Highest category: Electronics
 High Value Stock: Laptop, Rice Bag, Sugar Bag, Monitor
 ```
 
-### Test Case 2 — Single Category Only
+### Test Case 2 — Single known category
 
+**Input**
 ```python
 products = [
     ("Keyboard", "Electronics", 15, 800),
@@ -104,37 +119,41 @@ products = [
 ]
 ```
 
-**Expected:**
-
+**Expected Output**
 ```text
 Keyboard: stock value Rs.12000, final value Rs.11400.00
 Charger : stock value Rs.9000,  final value Rs.8550.00
-Electronics total: Rs.19950.00
-Grand total      : Rs.19950.00
-High Value Stock : Keyboard only
+
+Category totals : Electronics Rs.19950.00
+Grand total     : Rs.19950.00
+Highest category: Electronics
+High Value Stock: Keyboard
 ```
 
-`Rs.11400.00 > Rs.10000`; Charger's `Rs.8550.00` does not qualify.
+### Test Case 3 — Boundary: final value exactly Rs.10,000
 
-### Test Case 3 — Boundary: Final Value Exactly Rs.10,000
-
+**Input**
 ```python
 products = [
     ("Widget", "Stationery", 100, 100),
 ]
 ```
 
-**Expected:**
-
+**Expected Output**
 ```text
-Stock value: Rs.10000, final value: Rs.10000
+Widget: stock value Rs.10000, final value Rs.10000.00
+
+Category totals : Stationery Rs.10000.00
+Grand total     : Rs.10000.00
+Highest category: Stationery
 High Value Stock: None
 ```
 
-The rule requires **strictly greater than Rs.10,000**, not equal.
+The product is not high value because the rule requires a final value **strictly greater than Rs.10,000**.
 
-### Test Case 4 — Tie Between Two Categories
+### Test Case 4 — Tie between category totals
 
+**Input**
 ```python
 products = [
     ("Item A", "Electronics", 2, 900),
@@ -142,41 +161,52 @@ products = [
 ]
 ```
 
-**Expected:**
-
+**Expected Output**
 ```text
 Item A: stock value Rs.1800, final value Rs.1710.00
 Item B: stock value Rs.1900, final value Rs.1710.00
-Electronics total: Rs.1710.00
-Grocery total    : Rs.1710.00  (TIE)
-Highest category : either Electronics or Grocery is acceptable
+
+Category totals : Electronics Rs.1710.00, Grocery Rs.1710.00
+Grand total     : Rs.3420.00
+Highest category: Electronics
+High Value Stock: None
 ```
 
-### Test Case 5 — Unrecognized Category
+`Electronics` and `Grocery` are tied, so either category is acceptable as the highest category.
 
+### Test Case 5 — Multiple unrecognized categories must remain separate
+
+**Input**
 ```python
 products = [
-    ("Mystery Item", "Toys", 10, 100),
+    ("Toy Car",       "Toys",   10,  100),
+    ("Chair",         "Home",   5,  2000),
+    ("Monitor Stand", "Screen", 8,  12000),
 ]
 ```
 
-**Expected:**
-
+**Expected Output**
 ```text
-Stock value: Rs.1000, final value: Rs.1000
-Toys total: Rs.1000.00
+Toy Car       : stock value Rs.1000,  final value Rs.1000.00
+Chair         : stock value Rs.10000, final value Rs.10000.00
+Monitor Stand : stock value Rs.96000, final value Rs.96000.00
+
+Category totals : Toys Rs.1000.00, Home Rs.10000.00, Screen Rs.96000.00
+Grand total     : Rs.107000.00
+Highest category: Screen
+High Value Stock: Monitor Stand
 ```
 
-The unrecognized category `Toys` gets no discount, the same as Stationery.
+`Toys`, `Home`, and `Screen` are all unrecognized categories, so each category is reported separately and receives no discount.
 
-### Test Case 6 — Empty Product List
+### Test Case 6 — Empty product list
 
+**Input**
 ```python
 products = []
 ```
 
-**Expected:**
-
+**Expected Output**
 ```text
 No products found.
 ```
