@@ -57,6 +57,8 @@ Total payment: ₹2950.00
 
 ## Test Cases
 
+Every test case below uses the same complete output structure as the example.
+
 ### Test Case 1 — Weekday overtime with night shift
 
 **Input**
@@ -69,15 +71,16 @@ night = Yes
 
 **Expected Output**
 ```text
-Regular pay: ₹1600.00
+Regular hours: 8
+Regular pay: 8 × ₹200 = ₹1600.00
 Overtime hours: 3
 Overtime rate: 1.5× = ₹300.00/hr
-Overtime pay: ₹900.00
-Night bonus: ₹150.00
-Total: ₹2650.00
+Overtime pay: 3 × ₹300 = ₹900.00
+Night bonus: 3 × ₹50 = ₹150.00
+Total payment: ₹2650.00
 ```
 
-### Test Case 2 — Sunday with overtime cap
+### Test Case 2 — Sunday overtime beyond the 4-hour cap
 
 **Input**
 ```text
@@ -89,15 +92,16 @@ night = No
 
 **Expected Output**
 ```text
-Regular pay: ₹2400.00
-Raw overtime: 7 hours; capped overtime: 4 hours
+Regular hours: 8
+Regular pay: 8 × ₹300 = ₹2400.00
+Overtime hours: 4 (capped from 7)
 Overtime rate: 2.5× = ₹750.00/hr
-Overtime pay: ₹3000.00
-Night bonus: None
-Total: ₹5400.00
+Overtime pay: 4 × ₹750 = ₹3000.00
+Night bonus: ₹0.00
+Total payment: ₹5400.00
 ```
 
-### Test Case 3 — Exactly 8 hours
+### Test Case 3 — Exactly 8 hours, no overtime
 
 **Input**
 ```text
@@ -109,27 +113,34 @@ night = Yes
 
 **Expected Output**
 ```text
-Regular pay: ₹1600.00
-Overtime: None
-Night bonus: None
-Total: ₹1600.00
+Regular hours: 8
+Regular pay: 8 × ₹200 = ₹1600.00
+Overtime hours: 0
+Overtime rate: ₹0.00/hr
+Overtime pay: ₹0.00
+Night bonus: ₹0.00
+Total payment: ₹1600.00
 ```
 
-### Test Case 4 — Boundary: exactly 8 hours on Saturday
+### Test Case 4 — Saturday overtime
 
 **Input**
 ```text
 rate = 150
-hours = 8
+hours = 10
 day = Saturday
 night = No
 ```
 
 **Expected Output**
 ```text
-Regular pay: ₹1200.00
-Overtime: None
-Total: ₹1200.00
+Regular hours: 8
+Regular pay: 8 × ₹150 = ₹1200.00
+Overtime hours: 2
+Overtime rate: 2.0× = ₹300.00/hr
+Overtime pay: 2 × ₹300 = ₹600.00
+Night bonus: ₹0.00
+Total payment: ₹1800.00
 ```
 
 ### Test Case 5 — Night shift without overtime
@@ -144,8 +155,11 @@ night = Yes
 
 **Expected Output**
 ```text
-Regular pay: ₹1200.00
-Overtime: None
-Night bonus: None
-Total: ₹1200.00
+Regular hours: 6
+Regular pay: 6 × ₹200 = ₹1200.00
+Overtime hours: 0
+Overtime rate: ₹0.00/hr
+Overtime pay: ₹0.00
+Night bonus: ₹0.00
+Total payment: ₹1200.00
 ```
