@@ -51,24 +51,35 @@ Employees with overtime : 2
 
 ## Test Cases
 
-### Test Case 1 — Given data
+Every test case below uses the same complete output structure as the main expected output.
 
-Use the same employee data as the example.
+### Test Case 1 — Mixed regular and overtime employees
 
-**Expected:**
+**Input**
+```python
+employees = [
+    {"name": "Ravi",  "hours": 45, "rate": 200},
+    {"name": "Sita",  "hours": 38, "rate": 250},
+    {"name": "Arjun", "hours": 50, "rate": 180},
+    {"name": "Divya", "hours": 40, "rate": 220},
+]
+```
+
+**Expected Output**
 ```text
 Ravi  : ₹9500.00
 Sita  : ₹9500.00
 Arjun : ₹9900.00
 Divya : ₹8800.00
-Total: ₹37700.00
-Average: ₹9425.00
-Highest paid: Arjun
-OT employees: 2
+Total payroll           : ₹37700.00
+Average pay             : ₹9425.00
+Highest paid            : Arjun
+Employees with overtime : 2
 ```
 
 ### Test Case 2 — Everyone works exactly 40 hours
 
+**Input**
 ```python
 employees = [
     {"name": "Kiran", "hours": 40, "rate": 300},
@@ -76,56 +87,62 @@ employees = [
 ]
 ```
 
-**Expected:**
+**Expected Output**
 ```text
 Kiran : ₹12000.00
 Meena : ₹10000.00
-Total: ₹22000.00
-Average: ₹11000.00
-Highest paid: Kiran
-OT employees: 0
+Total payroll           : ₹22000.00
+Average pay             : ₹11000.00
+Highest paid            : Kiran
+Employees with overtime : 0
 ```
 
 ### Test Case 3 — Everyone works overtime
 
+**Input**
 ```python
 employees = [
-    {"name": "Asha", "hours": 48, "rate": 200},
+    {"name": "Asha",  "hours": 48, "rate": 200},
     {"name": "Vijay", "hours": 44, "rate": 300},
 ]
 ```
 
-**Expected:**
+**Expected Output**
 ```text
 Asha  : ₹10400.00
 Vijay : ₹13800.00
-Total: ₹24200.00
-Average: ₹12100.00
-Highest paid: Vijay
-OT employees: 2
+Total payroll           : ₹24200.00
+Average pay             : ₹12100.00
+Highest paid            : Vijay
+Employees with overtime : 2
 ```
 
-### Test Case 4 — Boundary: exactly 40 hours
+### Test Case 4 — Single employee at the 40-hour boundary
 
+**Input**
 ```python
 employees = [
     {"name": "Raj", "hours": 40, "rate": 500},
 ]
 ```
 
-**Expected:**
+**Expected Output**
 ```text
-Raj: ₹20000.00
-OT employees: 0
+Raj : ₹20000.00
+Total payroll           : ₹20000.00
+Average pay             : ₹20000.00
+Highest paid            : Raj
+Employees with overtime : 0
 ```
 
 ### Test Case 5 — Empty employee list
 
+**Input**
 ```python
 employees = []
 ```
 
-**Expected:**
+**Expected Output**
 ```text
 No employees found.
 ```
