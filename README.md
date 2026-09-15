@@ -80,7 +80,7 @@ This repository represents the stage of my development where I am strengthening 
 
 As my skills grow, the repository will continue to show that progression rather than trying to hide earlier work.
 
-## 👨‍💻 Developer
+## 👨‍💻 About Me
 
 **Boyidapu Mahesh Babu**
 
