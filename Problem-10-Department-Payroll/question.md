@@ -67,14 +67,51 @@ Lowest paid : Kiran
 
 ## Test Cases
 
-### Test Case 1 — Given data with three departments
+Every test case below uses the same complete department report structure.
 
-Use the example employee list.
+### Test Case 1 — Multiple departments with regular and overtime employees
 
-**Expected:** same department summaries as shown above.
+**Input**
+```python
+employees = [
+    {"name": "Ravi",  "dept": "Engineering", "hours": 45, "rate": 200},
+    {"name": "Sita",  "dept": "Engineering", "hours": 38, "rate": 250},
+    {"name": "Arjun", "dept": "Marketing",   "hours": 50, "rate": 180},
+    {"name": "Divya", "dept": "Marketing",   "hours": 40, "rate": 220},
+    {"name": "Kiran", "dept": "HR",          "hours": 35, "rate": 300},
+    {"name": "Meena", "dept": "HR",          "hours": 42, "rate": 270},
+]
+```
+
+**Expected Output**
+```text
+=== Engineering ===
+Ravi  : ₹9500.00
+Sita  : ₹9500.00
+Total : ₹19000.00
+Highest paid: Ravi
+Lowest paid : Ravi
+
+=== Marketing ===
+Arjun : ₹9900.00
+Divya : ₹8800.00
+Total : ₹18700.00
+Highest paid: Arjun
+Lowest paid : Divya
+
+=== HR ===
+Kiran : ₹10500.00
+Meena : ₹11610.00
+Total : ₹22110.00
+Highest paid: Meena
+Lowest paid : Kiran
+```
+
+For Engineering, Ravi and Sita are tied, so either tied employee is acceptable for both highest and lowest if handled consistently.
 
 ### Test Case 2 — One department, all employees work overtime
 
+**Input**
 ```python
 employees = [
     {"name": "Asha",  "dept": "Tech", "hours": 48, "rate": 200},
@@ -82,7 +119,7 @@ employees = [
 ]
 ```
 
-**Expected:**
+**Expected Output**
 ```text
 === Tech ===
 Asha  : ₹10400.00
@@ -92,65 +129,47 @@ Highest paid: Vijay
 Lowest paid : Asha
 ```
 
-### Test Case 3 — Single department, single employee
+### Test Case 3 — Single department with one employee
 
+**Input**
 ```python
 employees = [
     {"name": "Raj", "dept": "Finance", "hours": 40, "rate": 500},
 ]
 ```
 
-**Expected:**
+**Expected Output**
 ```text
 === Finance ===
-Raj   : ₹20000.00
+Raj : ₹20000.00
 Total : ₹20000.00
 Highest paid: Raj
 Lowest paid : Raj
 ```
 
-### Test Case 4 — Boundary: all employees work exactly 40 hours
+### Test Case 4 — Departments must be discovered dynamically
 
+**Input**
 ```python
 employees = [
     {"name": "A", "dept": "Sales", "hours": 40, "rate": 200},
-    {"name": "B", "dept": "Sales", "hours": 40, "rate": 300},
+    {"name": "B", "dept": "Support", "hours": 45, "rate": 200},
 ]
 ```
 
-**Expected:**
+**Expected Output**
 ```text
 === Sales ===
 A : ₹8000.00
-B : ₹12000.00
-Total : ₹20000.00
-Highest paid: B
+Total : ₹8000.00
+Highest paid: A
 Lowest paid : A
-OT: 0 for both
+
+=== Support ===
+B : ₹10750.00
+Total : ₹10750.00
+Highest paid: B
+Lowest paid : B
 ```
 
-### Test Case 5 — Multiple departments with equal salaries in one department
-
-```python
-employees = [
-    {"name": "X", "dept": "Ops", "hours": 40, "rate": 200},
-    {"name": "Y", "dept": "Ops", "hours": 40, "rate": 200},
-    {"name": "Z", "dept": "IT",  "hours": 45, "rate": 300},
-]
-```
-
-**Expected:**
-```text
-=== Ops ===
-X : ₹8000.00
-Y : ₹8000.00
-Total : ₹16000.00
-Highest paid: X (or Y — equal, either is acceptable)
-Lowest paid : X (or Y — equal, either is acceptable)
-
-=== IT ===
-Z : ₹14250.00
-Total : ₹14250.00
-Highest paid: Z
-Lowest paid : Z
-```
+The department names `Sales` and `Support` are not part of a fixed list; they must be taken from the employee data.
