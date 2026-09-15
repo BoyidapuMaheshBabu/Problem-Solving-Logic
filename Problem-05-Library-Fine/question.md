@@ -151,11 +151,11 @@ membership = Non-member
 
 **Expected Output**
 ```text
-Base fine: ₹275.00
-Multiplier: Fiction (1×) = ₹275.00
+Base fine: ₹475.00
+Multiplier: Fiction (1×) = ₹475.00
 Membership discount: 0% = ₹0.00
-After discount: ₹275.00
-Final fine: ₹275.00
+After discount: ₹475.00
+Final fine: ₹475.00
 ```
 
 ### Test Case 6 — Invalid book type
