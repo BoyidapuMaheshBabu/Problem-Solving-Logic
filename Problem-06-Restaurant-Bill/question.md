@@ -69,7 +69,7 @@ membership = regular
 **Expected Output**
 ```text
 Food amount: 3 × ₹400.00 = ₹1200.00
-Bulk discount: None
+Bulk discount: 0% = ₹0.00
 Subtotal after bulk discount: ₹1200.00
 Member discount: 10% = −₹120.00
 Final subtotal: ₹1080.00
@@ -87,25 +87,29 @@ Final bill: ₹1371.60
 
 ## Test Cases
 
-### Test Case 1 — No bulk discount, member, percentage tip
+Every test case below uses the same complete output structure as the example.
+
+### Test Case 1 — Regular member, percentage tip, no bulk discount
 
 **Input**
 ```text
 item = Biryani
 qty = 3
 price = 400
-tip = 2 (15%)
+tip choice = 2
+percentage = 15
 membership = regular
 ```
 
 **Expected Output**
 ```text
-Food amount: ₹1200.00
-Bulk discount: None
-Member discount: 10% = ₹120.00
-Subtotal: ₹1080.00
-Tax: 12% = ₹129.60
-Tip: 15% = ₹162.00
+Food amount: 3 × ₹400.00 = ₹1200.00
+Bulk discount: 0% = ₹0.00
+Subtotal after bulk discount: ₹1200.00
+Member discount: 10% = −₹120.00
+Final subtotal: ₹1080.00
+Tax: 12% of ₹1080.00 = ₹129.60
+Tip: 15% of ₹1080.00 = ₹162.00
 Final bill: ₹1371.60
 ```
 
@@ -116,38 +120,42 @@ Final bill: ₹1371.60
 item = Thali
 qty = 20
 price = 300
-tip = 3 (no tip)
+tip choice = 3
 membership = non-member
 ```
 
 **Expected Output**
 ```text
-Food amount: ₹6000.00
-Bulk discount: 5% = ₹300.00
-After discount: ₹5700.00
-Member discount: None
-Tax: 18% = ₹1026.00
+Food amount: 20 × ₹300.00 = ₹6000.00
+Bulk discount: 5% = −₹300.00
+Subtotal after bulk discount: ₹5700.00
+Member discount: 0% = ₹0.00
+Final subtotal: ₹5700.00
+Tax: 18% of ₹5700.00 = ₹1026.00
 Tip: ₹0.00
 Final bill: ₹6726.00
 ```
 
-### Test Case 3 — Low tax tier with custom tip
+### Test Case 3 — Low tax tier, custom tip, non-member
 
 **Input**
 ```text
 item = Tea
 qty = 2
 price = 50
-tip = 1 (custom ₹20)
+tip choice = 1
+custom tip = 20
 membership = non-member
 ```
 
 **Expected Output**
 ```text
-Food amount: ₹100.00
-Bulk discount: None
-Member discount: None
-Tax: 5% = ₹5.00
+Food amount: 2 × ₹50.00 = ₹100.00
+Bulk discount: 0% = ₹0.00
+Subtotal after bulk discount: ₹100.00
+Member discount: 0% = ₹0.00
+Final subtotal: ₹100.00
+Tax: 5% of ₹100.00 = ₹5.00
 Tip: ₹20.00
 Final bill: ₹125.00
 ```
@@ -159,21 +167,25 @@ Final bill: ₹125.00
 item = Meal
 qty = 10
 price = 500
-tip = 3 (no tip)
+tip choice = 3
 membership = non-member
 ```
 
 **Expected Output**
 ```text
-Food amount: ₹5000.00
-Bulk discount: None
-Tax: 18% = ₹900.00
+Food amount: 10 × ₹500.00 = ₹5000.00
+Bulk discount: 0% = ₹0.00
+Subtotal after bulk discount: ₹5000.00
+Member discount: 0% = ₹0.00
+Final subtotal: ₹5000.00
+Tax: 18% of ₹5000.00 = ₹900.00
+Tip: ₹0.00
 Final bill: ₹5900.00
 ```
 
-The bulk discount does not apply because the rule is strictly greater than ₹5,000.
+No bulk discount applies because the rule requires the food amount to be strictly greater than ₹5,000.
 
-### Test Case 5 — Invalid tip percentage
+### Test Case 5 — Invalid percentage tip
 
 **Input**
 ```text
