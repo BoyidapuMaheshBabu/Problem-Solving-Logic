@@ -38,7 +38,7 @@ TIER4_RATE = 0.08
 
 # Invalid or zero balance
 if balance_amount <= 0:
-    print("No interest earned because the account balance is insufficient.")
+    print("No interest earned, because the balance is invalid.")
 
 # Balance up to ₹10,000
 elif balance_amount <= 10000:
