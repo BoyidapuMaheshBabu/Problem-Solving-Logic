@@ -54,15 +54,13 @@ for record in records:
 
 student_names = []
 subjects = []
+def appened_elements(key, value, target_list):
+      for target in target_list:
+          if target[key] not in value:
+              value.append(target[key])
 
-for record in student_records:
-
-    if record["name"] not in student_names:
-        student_names.append(record["name"])
-
-    if record["subject"] not in subjects:
-        subjects.append(record["subject"])
-
+appened_elements('name',student_names,student_records)
+appened_elements('subject',subjects,student_records)
 
 # ===============================================
 # Utility Functions
