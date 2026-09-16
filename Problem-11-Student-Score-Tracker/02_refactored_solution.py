@@ -54,13 +54,17 @@ for record in records:
 
 student_names = []
 subjects = []
-def appened_elements(key, value, target_list):
-      for target in target_list:
-          if target[key] not in value:
-              value.append(target[key])
 
-appened_elements('name',student_names,student_records)
-appened_elements('subject',subjects,student_records)
+
+def append_elements(key, value, target_list):
+    for target in target_list:
+        if target[key] not in value:
+            value.append(target[key])
+
+
+append_elements("name", student_names, student_records)
+append_elements("subject", subjects, student_records)
+
 
 # ===============================================
 # Utility Functions
@@ -114,7 +118,6 @@ def calculate_average(records, key, value):
     count = 0
 
     for record in records:
-
         if record[key] == value:
             total_marks += record["marks"]
             count += 1
@@ -122,117 +125,121 @@ def calculate_average(records, key, value):
     return round(total_marks / count, 2) if count > 0 else 0
 
 
-# ===============================================
-# Step 4: Calculate Student Averages
-# ===============================================
+def main():
+    # ===============================================
+    # Step 4: Calculate Student Averages
+    # ===============================================
 
-student_averages = []
+    student_averages = []
 
-for name in student_names:
-    average = calculate_average(
-        student_records,
-        "name",
-        name
+    for name in student_names:
+        average = calculate_average(
+            student_records,
+            "name",
+            name
+        )
+
+        student_averages.append([name, average])
+
+    student_averages = descending_sort(student_averages, 1)
+
+
+    # ===============================================
+    # Step 5: Display Student Results
+    # ===============================================
+
+    print(
+        "\n========== SUMMARY REPORT OF STUDENT "
+        "and SUBJECT MARKS ==========\n"
     )
 
-    student_averages.append([name, average])
+    print("--- Student Averages ---")
+    print_averages(student_averages)
 
-student_averages = descending_sort(student_averages, 1)
+    top_student = student_averages[0]
+    lowest_student = student_averages[-1]
 
-
-# ===============================================
-# Step 5: Display Student Results
-# ===============================================
-
-print(
-    "\n========== SUMMARY REPORT OF STUDENT "
-    "and SUBJECT MARKS ==========\n"
-)
-
-print("--- Student Averages ---")
-print_averages(student_averages)
-
-top_student = student_averages[0]
-lowest_student = student_averages[-1]
-
-print_high_and_low_rates(
-    top_student,
-    "Top Student",
-    lowest_student,
-    "Lowest Student"
-)
-
-
-# ===============================================
-# Step 6: Calculate Subject Averages
-# ===============================================
-
-subject_averages = []
-
-for subject in subjects:
-    average = calculate_average(
-        student_records,
-        "subject",
-        subject
+    print_high_and_low_rates(
+        top_student,
+        "Top Student",
+        lowest_student,
+        "Lowest Student"
     )
 
-    subject_averages.append([subject, average])
 
-subject_averages = descending_sort(subject_averages, 1)
+    # ===============================================
+    # Step 6: Calculate Subject Averages
+    # ===============================================
 
+    subject_averages = []
 
-# ===============================================
-# Step 7: Display Subject Results
-# ===============================================
+    for subject in subjects:
+        average = calculate_average(
+            student_records,
+            "subject",
+            subject
+        )
 
-print("\n--- Subject Averages ---")
-print_averages(subject_averages)
+        subject_averages.append([subject, average])
 
-easiest_subject = subject_averages[0]
-hardest_subject = subject_averages[-1]
-
-print_high_and_low_rates(
-    easiest_subject,
-    "Easiest Subject",
-    hardest_subject,
-    "Hardest Subject"
-)
+    subject_averages = descending_sort(subject_averages, 1)
 
 
-# ===============================================
-# Step 8: Separate Passed and Failed Students
-# ===============================================
+    # ===============================================
+    # Step 7: Display Subject Results
+    # ===============================================
 
-passed_students = []
-failed_students = []
+    print("\n--- Subject Averages ---")
+    print_averages(subject_averages)
 
-for student in student_averages:
+    easiest_subject = subject_averages[0]
+    hardest_subject = subject_averages[-1]
 
-    if student[1] >= PASS_MARKS:
-        passed_students.append(student)
-    else:
-        failed_students.append(student)
-
-
-# ===============================================
-# Step 9: Display Passed Students
-# ===============================================
-
-display_students_category(
-    "Passed",
-    passed_students,
-    ">="
-)
+    print_high_and_low_rates(
+        easiest_subject,
+        "Easiest Subject",
+        hardest_subject,
+        "Hardest Subject"
+    )
 
 
-# ===============================================
-# Step 10: Display Failed Students
-# ===============================================
+    # ===============================================
+    # Step 8: Separate Passed and Failed Students
+    # ===============================================
 
-display_students_category(
-    "Failed",
-    failed_students,
-    "<"
-)
+    passed_students = []
+    failed_students = []
 
-print()
+    for student in student_averages:
+        if student[1] >= PASS_MARKS:
+            passed_students.append(student)
+        else:
+            failed_students.append(student)
+
+
+    # ===============================================
+    # Step 9: Display Passed Students
+    # ===============================================
+
+    display_students_category(
+        "Passed",
+        passed_students,
+        ">="
+    )
+
+
+    # ===============================================
+    # Step 10: Display Failed Students
+    # ===============================================
+
+    display_students_category(
+        "Failed",
+        failed_students,
+        "<"
+    )
+
+    print()
+
+
+if __name__ == "__main__":
+    main()
