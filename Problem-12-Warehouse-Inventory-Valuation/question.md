@@ -10,13 +10,16 @@ You must calculate, for every product, its raw stock value and its final (discou
 
 ```python
 products = [
-    ("Laptop",    "Electronics", 5,   55000),
-    ("Mouse",     "Electronics", 20,  500),
-    ("Rice Bag",  "Grocery",     50,  1200),
-    ("Sugar Bag", "Grocery",     40,  450),
-    ("Notebook",  "Stationery",  100, 60),
-    ("Pen Pack",  "Stationery",  200, 20),
-    ("Monitor",   "Electronics", 8,  12000),
+    ("Laptop",     "Electronics", 4, 62000),
+    ("Keyboard",   "Electronics", 10, 850),
+    ("Chair",      "Furniture",   5, 3500),
+    ("Sofa",       "Furniture",   2, 18500),
+    ("Rice",       "Grocery",      20, 1100),
+    ("T-Shirt",    "Clothing",     10, 900),
+    ("Football",   "Sports",        8, 1200),
+    ("Notebook",   "Stationery",   50, 75),
+    ("Mixer",      "Appliances",    3, 4200),
+    ("Wall Clock", "Home Decor",   10, 650),
 ]
 ```
 
@@ -70,35 +73,41 @@ Each tuple is:
 
 Every non-empty test case below follows the same complete output structure as the main expected output. Product results, category totals, grand total, highest category, and High Value Stock are all shown.
 
-### Test Case 1 — Normal case with all three known categories
+### Test Case 1 — Normal case with multiple categories
 
 **Input**
 ```python
 products = [
-    ("Laptop",    "Electronics", 5,   55000),
-    ("Mouse",     "Electronics", 20,  500),
-    ("Rice Bag",  "Grocery",     50,  1200),
-    ("Sugar Bag", "Grocery",     40,  450),
-    ("Notebook",  "Stationery",  100, 60),
-    ("Pen Pack",  "Stationery",  200, 20),
-    ("Monitor",   "Electronics", 8,  12000),
+    ("Laptop",     "Electronics", 4, 62000),
+    ("Keyboard",   "Electronics", 10, 850),
+    ("Chair",      "Furniture",   5, 3500),
+    ("Sofa",       "Furniture",   2, 18500),
+    ("Rice",       "Grocery",      20, 1100),
+    ("T-Shirt",    "Clothing",     10, 900),
+    ("Football",   "Sports",        8, 1200),
+    ("Notebook",   "Stationery",   50, 75),
+    ("Mixer",      "Appliances",    3, 4200),
+    ("Wall Clock", "Home Decor",   10, 650),
 ]
 ```
 
 **Expected Output**
 ```text
-Laptop   : stock value Rs.275000, final value Rs.261250.00
-Mouse    : stock value Rs.10000,  final value Rs.9500.00
-Rice Bag : stock value Rs.60000,  final value Rs.54000.00
-Sugar Bag: stock value Rs.18000,  final value Rs.16200.00
-Notebook : stock value Rs.6000,   final value Rs.6000.00
-Pen Pack : stock value Rs.4000,   final value Rs.4000.00
-Monitor  : stock value Rs.96000,  final value Rs.91200.00
+Laptop     : stock value Rs.248000, final value Rs.235600.00
+Keyboard   : stock value Rs.8500,   final value Rs.8075.00
+Chair      : stock value Rs.17500,  final value Rs.17500.00
+Sofa       : stock value Rs.37000,  final value Rs.37000.00
+Rice       : stock value Rs.22000,  final value Rs.19800.00
+T-Shirt    : stock value Rs.9000,   final value Rs.9000.00
+Football   : stock value Rs.9600,   final value Rs.9600.00
+Notebook   : stock value Rs.3750,   final value Rs.3750.00
+Mixer      : stock value Rs.12600,  final value Rs.12600.00
+Wall Clock : stock value Rs.6500,   final value Rs.6500.00
 
-Category totals : Electronics Rs.361950.00, Grocery Rs.70200.00, Stationery Rs.10000.00
-Grand total     : Rs.442150.00
+Category totals : Electronics Rs.243675.00, Furniture Rs.54500.00, Grocery Rs.19800.00, Clothing Rs.9000.00, Sports Rs.9600.00, Stationery Rs.3750.00, Appliances Rs.12600.00, Home Decor Rs.6500.00
+Grand total     : Rs.359425.00
 Highest category: Electronics
-High Value Stock: Laptop, Rice Bag, Sugar Bag, Monitor
+High Value Stock: Laptop, Chair, Sofa, Rice, Mixer
 ```
 
 ### Test Case 2 — Single known category
