@@ -9,17 +9,17 @@ if balance_amount<=0:
     print("No intrest earned ,because inflicted balnace")
 elif balance_amount <=10000:
     interest_amount=balance_amount*tier1_interest
-    print(f"Interest earned is ${interest_amount:.2f}")
+    print(f"Interest earned is ₹{interest_amount:.2f}")
 elif balance_amount>10000 and balance_amount<=50000:
     interest_amount=balance_amount*tier2_interest
-    print(f"Interest earned is ${interest_amount:.2f}")
+    print(f"Interest earned is ₹{interest_amount:.2f}")
 elif balance_amount>50000 and balance_amount<=100000:      
         interest_amount=balance_amount*tier3_interest
         total_interest=interest_amount+bonus
-        print(f"Interest earned is ${total_interest:.2f}")
+        print(f"Interest earned is ₹{total_interest:.2f}")
 elif balance_amount>100000:
         interest_amount=balance_amount*tier4_interest
         total_interest=interest_amount+bonus
         tax_on_interest=total_interest*tax
         total_earned=total_interest-tax_on_interest
-        print(f"Interest earned is${total_earned:.2f}")
+        print(f"Interest earned is ₹{total_earned:.2f}")
