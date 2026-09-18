@@ -15,7 +15,7 @@ Quick navigation for the Problem-Solving-Logic practice repository.
 | 09 | Team Payroll | [Question](./Problem-09-Team-Payroll/question.md) | [Initial](./Problem-09-Team-Payroll/01_initial_solution.py) · [Refactored](./Problem-09-Team-Payroll/02_refactored_solution.py) |
 | 10 | Department Payroll | [Question](./Problem-10-Department-Payroll/question.md) | [Initial](./Problem-10-Department-Payroll/01_initial_solution.py) · [Refactored](./Problem-10-Department-Payroll/02_refactored_solution.py) |
 | 11 | Student Score Tracker | [Question](./Problem-11-Student-Score-Tracker/question.md) | [Initial](./Problem-11-Student-Score-Tracker/01_initial_solution.py) · [Refactored](./Problem-11-Student-Score-Tracker/02_refactored_solution.py) |
-| 12 | Warehouse Inventory Valuation | [Question](./Problem-12-Warehouse-Inventory-Valuation/question.md) | — |
+| 12 | Warehouse Inventory Valuation | [Question](./Problem-12-Warehouse-Inventory-Valuation/question.md) | [Initial](./Problem-12-Warehouse-Inventory-Valuation/01_initial_solution.py) |
 
 Each problem follows:
 
