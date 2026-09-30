@@ -17,7 +17,7 @@ A structured record of my **Python problem-solving practice**, focused on reason
 
 **Python Fundamentals:** Practicing variables, input handling, conditional logic, loops, and core data structures through problem solving.
 
-**Functions & Data Processing:** Functions, reusable logic, grouping, filtering, sorting, ranking, and averages.
+**Functions & Data Processing:** Functions, reusable logic, grouping, filtering, sorting, ranking, averages, and aggregation.
 
 **Problem Solving:** Requirements analysis, logical reasoning, validation, edge cases, testing, debugging, and refactoring.
 
@@ -59,9 +59,12 @@ Problems cover scenarios such as parking fees, banking interest, movie tickets, 
 
 Moved toward processing collections of records using lists, dictionaries, loops, functions, grouping, and aggregation.
 
-### Data Processing — Problem 11
+### Data Processing — Problems 11–12
 
-Applied structured records, grouping, averages, sorting, ranking, and failure-threshold handling to student and subject data.
+Applied structured records and multi-step data processing to progressively more complex scenarios.
+
+- **Problem 11 — Student Score Tracker:** grouping student records, calculating averages, sorting, ranking, and handling a failure threshold.
+- **Problem 12 — Warehouse Inventory Valuation:** converting product records into dictionaries, calculating stock and discounted values, grouping final values by category, finding the highest-value category, and identifying high-value stock.
 
 ## 🔄 Refactoring & Improvement
 
@@ -107,7 +110,8 @@ Problem-Solving-Logic/
 ├── Problem-08-Overtime-Pay/
 ├── Problem-09-Team-Payroll/
 ├── Problem-10-Department-Payroll/
-└── Problem-11-Student-Score-Tracker/
+├── Problem-11-Student-Score-Tracker/
+└── Problem-12-Warehouse-Inventory-Valuation/
 ```
 
 Each problem contains the implementation and supporting notes describing the requirements, concepts used, approach, and lessons learned.
