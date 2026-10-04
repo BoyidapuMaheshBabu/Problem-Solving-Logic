@@ -2,6 +2,12 @@
 
 A structured record of my **Python problem-solving practice**, focused on reasoning, implementation, validation, data processing, and continuous improvement.
 
+> ⏸️ **Current status — Temporarily paused**
+>
+> Problem-solving practice is currently paused while I focus on building and validating **TermRunway**, my first serious Android product. I chose to concentrate my learning and reasoning on one major project rather than split my attention across multiple learning tracks.
+>
+> This repository is **not discontinued**. I plan to resume problem-solving practice after the current TermRunway development cycle.
+
 > **Solve unfamiliar problems. Learn what is needed. Improve the solution.**
 
 ## ⭐ Highlights
