@@ -2,11 +2,11 @@
 
 A structured record of my **Python problem-solving practice**, focused on reasoning, implementation, validation, data processing, and continuous improvement.
 
-> ⏸️ **Current status — Temporarily paused**
+> 🟢 **Current status — Resumed (18 October 2026)**
 >
-> Problem-solving practice is currently paused while I focus on building and validating **TermRunway**, my first serious Android product. I chose to concentrate my learning and reasoning on one major project rather than split my attention across multiple learning tracks.
+> Problem-solving practice has restarted alongside my work on **TermRunway**. I am returning to independent Python problem solving to strengthen logical reasoning, requirements analysis, implementation, testing, debugging, and solution improvement.
 >
-> This repository is **not discontinued**. I plan to resume problem-solving practice after the current TermRunway development cycle.
+> This restart is the beginning of the next practice cycle. New solutions, tests, and notes will provide evidence of progress as the work is completed.
 
 > **Solve unfamiliar problems. Learn what is needed. Improve the solution.**
 
