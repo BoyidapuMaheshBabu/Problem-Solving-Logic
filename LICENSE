@@ -1,0 +1,142 @@
+# Problem-Solving-Logic
+
+A structured collection of Python problem-solving exercises focused on logic, fundamentals, validation, and clean implementation.
+
+## Overview
+
+This repository documents a personal learning journey in Python problem solving. Each challenge is designed to strengthen reasoning, requirement analysis, and implementation skills through realistic scenarios and rule-based logic.
+
+The repository begins with beginner-friendly fundamentals and progresses toward more structured data-processing problems, making it a practical record of growth and improvement.
+
+## Goals
+
+- Strengthen Python basics and problem-solving logic
+- Translate business rules into working code
+- Handle edge cases and validation correctly
+- Improve readability and maintainability over time
+- Build a portfolio of practical coding exercises
+
+## Repository Structure
+
+```text
+Problem-Solving-Logic/
+├── README.md
+├── PROBLEM-INDEX.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── requirements.txt
+├── .gitignore
+├── docs/
+│   └── learning-notes.md
+├── Problem-01-Parking-Fee/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-02-Bank-Interest/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-03-Movie-Theater/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-04-E-commerce/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-05-Library-Fine/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-06-Restaurant-Bill/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-07-Employee-Salary/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-08-Overtime-Pay/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-09-Team-Payroll/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-10-Department-Payroll/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-11-Student-Score-Tracker/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-12-Warehouse-Inventory-Valuation/
+│   ├── README.md
+│   ├── question.md
+│   ├── 01_initial_solution.py
+│   └── 02_refactored_solution.py
+├── Problem-13-Order-Payment-Reconciliation/
+│   └── question.md
+└── README.md
+```
+
+## Progression
+
+### Foundation Problems
+Problems 01–08 focus on conditionals, calculations, input handling, validation, and business-rule logic.
+
+### Data-Oriented Problems
+Problems 09–12 introduce lists, dictionaries, records, grouping, aggregation, and structured processing.
+
+### Current Practice
+The repository continues to evolve with new challenges, refactoring, and stronger problem-analysis habits.
+
+## Problem-Solving Approach
+
+```text
+Understand the requirements
+    ↓
+Break the problem into logic
+    ↓
+Implement a working solution
+    ↓
+Validate edge cases
+    ↓
+Review and improve readability
+```
+
+## Learning Philosophy
+
+- Solve unfamiliar challenges independently
+- Understand the concept before formalizing the solution
+- Refactor for clarity and maintainability
+- Keep earlier versions to show growth and learning progress
+
+## About
+
+Built by Boyidapu Mahesh Babu as a personal repository for Python practice, logic-building, and iterative improvement.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+GitHub: https://github.com/BoyidapuMaheshBabu
+
+---
+
+A growing practice archive for Python fundamentals, logic, and disciplined problem solving.
